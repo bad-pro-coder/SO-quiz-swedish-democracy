@@ -57,6 +57,7 @@
         q: "Vad skiljer vanliga lagar och grundlagar?",
         keywords: [ "grundlag", "lag", "val", "ändra" ],
         answered: false,
+        facit: "Grundlagar styr över alla vanliga lagar, inga vanliga lagar kan överskrida en grundlag. Grundlagar är mycket svårare att ändra, det krävs att riksdagen gör samma beslut två gånger <br> med ett val emellan. De kan också använda en folkröstning som rådgivning.",
       },
     ];
     questions.forEach((q, i) => {
@@ -81,9 +82,9 @@
       console.log(pts)
       console.log("facit-" + (i + 1))
       if(pts > 0){
-        document.getElementById("facit-" + (i + 1)).innerHTML = "Rätt! + " + pts +  "/20 poäng!" 
+        document.getElementById("facit-" + (i + 1)).innerHTML = "Rätt! + " + pts +  "/20 poäng! facit: " + questions[i].facit 
       }else{
-        document.getElementById("facit-" + (i + 1)).innerHTML = "Inte riktigt rätt, 0 poäng"
+        document.getElementById("facit-" + (i + 1)).innerHTML = "Inte riktigt rätt, 0 poäng, facit: " + questions[i].facit
       }
     }
   </script>
