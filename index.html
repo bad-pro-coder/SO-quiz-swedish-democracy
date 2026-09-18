@@ -2,7 +2,90 @@
 <html lang="sv">
 <head>
   <meta charset="utf-8">
-  <style></style>
+  <title>Plugga inför SO-provet</title>
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+    h1, h2{
+      font-family: "Josefin Sans", sans-serif;
+      font-optical-sizing: auto;
+      font-style: normal;
+      margin:1vw;
+    }body{ 
+        background-color:black;
+        color:white;
+        
+    }.fragaCard{
+      background-color:#05072e;
+      background-image: 
+            radial-gradient(at 100% 0%, hsla(300,209%,30%,0.3) 0, transparent 50%);
+      border-radius:1vh;
+      width:fit-content;
+      box-shadow: inset 0 1px 6px rgba(100,0,255,0.65);
+    }#fragor{
+      display:flex;
+      justify-content: center;
+    }textarea{
+      box-shadow: inset 0 3px 6px rgba(0,0,0,0.65);
+      border:2px solid #000000;
+      font-family: "Josefin Sans", sans-serif;
+      font-size:1.5vw;
+      font-optical-sizing: auto;
+      font-style: normal;
+      max-width:50vw;
+      min-width:50vw;
+      margin-left:1vw;
+      margin-right:1vw;
+      margin-bottom:1vw;
+      width:50vw;
+      border-radius:1vw;
+    }.submit-btn{
+      box-shadow: 0px 5px gray;
+    }.submit-btn:active{
+      transform: translateY(5px);
+      box-shadow: 0px 0px gray;
+    }
+  </style>
 </head>
-<body></body>
+<body>
+  <h1>Plugga inför SO-provet</h1><p id="points">Poäng: 0</p>
+  <div id="fragor"></div>
+  <script>
+    pts = 0;
+    const questions = [
+      {
+        id: 0,
+        q: "Vad skiljer vanliga lagar och grundlagar?",
+        keywords: [ "grundlag", "lag", "val", "ändra" ],
+        answered: false,
+      },
+    ];
+    questions.forEach((q, i) => {
+      const fraga = document.createElement("div")
+      fraga.id = `fraga-${q.id+1}`;
+      fraga.className = "fragaCard"
+      fraga.innerHTML = `<h2>${q.id + 1 + ". " + q.q}</h2><textarea id="textAnswer" name="story" rows="5" cols="33"></textarea><button class="submit-btn" id="btn-${q.id+1}" style="display:block; padding:5px; margin:5px;" onclick="checkAnswer(${q.id})">Rätta svar</button><p id="${"facit-" + (q.id + 1)}"></p>`
+      document.getElementById("fragor").appendChild(fraga);
+    });
+    function checkAnswer(i){
+      //var facit = document.getElementById("facit-" + (i + 1))
+      const submit = document.getElementById("btn-" + (i + 1))
+      questions[i].answered = true;
+      submit.disabled = true;
+      submit.style.cursor = "not-allowed";
+      questions[i].keywords.forEach((keyword, ix, arr, i) => {
+        let ifIncludes = document.getElementById("textAnswer").value.toLowerCase().includes(keyword);
+        if(ifIncludes){
+          pts += 5;
+        }
+      });
+      console.log(pts)
+      console.log("facit-" + (i + 1))
+      if(pts > 0){
+        document.getElementById("facit-" + (i + 1)).innerHTML = "Rätt! + " + pts +  "/20 poäng!" 
+      }else{
+        document.getElementById("facit-" + (i + 1)).innerHTML = "Inte riktigt rätt, 0 poäng"
+      }
+    }
+  </script>
+</body>
 </html>
