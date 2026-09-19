@@ -5,12 +5,15 @@
   <title>Plugga inför SO-provet</title>
   <style>
   @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
-    h1, h2{
+    h1, h2, h6{
       font-family: "Josefin Sans", sans-serif;
       font-optical-sizing: auto;
       font-style: normal;
       margin:1vw;
-    }body{ 
+    }h6{
+      color:gray;
+    }
+    body{ 
         background-color:black;
         color:white;
         
@@ -64,7 +67,9 @@
   </style>
 </head>
 <body>
-  <h1>Plugga inför SO-provet</h1><p id="points">Poäng: 0</p>
+  <h1>Plugga inför SO-provet</h1>
+  <h6>Av: Aron och Oliver 9F, ingen AI har använts :)</h6>
+  <p style="display:block;"><a href="https://quizlet.com/se/1210376531/so-samhalle-prov-onsdag-v39-flash-cards/?i=47jpzm&x=1jqt" target="_blank">Plugga begrepp</a></p><p id="points">Poäng: 0</p>
   <div id="fragor"></div>
   <script>
     pts = 0;
@@ -271,269 +276,6 @@
       document.getElementById("points").innerHTML = "Poäng: " + pts
     }function visaFacit(i){
       document.getElementById("facit-" + (i + 1)).innerHTML =       "Facit: " + questions[i].facit
-    }
-  </script>
-</body>
-</html><!DOCTYPE html>
-<html lang="sv">
-<head>
-  <meta charset="utf-8">
-  <title>Plugga inför SO-provet</title>
-  <style>
-  @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
-    h1, h2{
-      font-family: "Josefin Sans", sans-serif;
-      font-optical-sizing: auto;
-      font-style: normal;
-      margin:1vw;
-    }body{ 
-        background-color:black;
-        color:white;
-        
-    }.fragaCard{
-      background-color:#05072e;
-      background-image: 
-            radial-gradient(at 100% 0%, hsla(300,209%,30%,0.3) 0, transparent 50%);
-      border-radius:1vh;
-      width:fit-content;
-      max-width:53vw;
-      box-shadow: inset 0 1px 6px rgba(100,0,255,0.65);
-      display:inline-block;
-      margin-left:25vw;
-      margin-bottom:5vw;
-    }#fragor{
-      ;
-    }textarea{
-      box-shadow: inset 0 3px 6px rgba(0,0,0,0.65);
-      border:2px solid #000000;
-      font-family: "Josefin Sans", sans-serif;
-      font-size:12px;
-      font-optical-sizing: auto;
-      font-style: normal;
-      max-width:50vw;
-      min-width:50vw;
-      margin-left:1vw;
-      margin-right:1vw;
-      margin-bottom:1vw;
-      width:50vw;
-      border-radius:3px;
-    }.submit-btn{
-      box-shadow: 0px 5px gray;
-      transition: transform 0.1s ease-in-out;
-    }.submit-btn:active{
-      transform: translateY(5px);
-      box-shadow: 0px 0px gray;
-    }p{
-      display:inline-block;
-    }#points{
-      position:sticky;
-      top:0;
-    }
-  </style>
-</head>
-<body>
-  <h1>Plugga inför SO-provet</h1><p id="points">Poäng: 0</p>
-  <div id="fragor"></div>
-  <script>
-    pts = 0;
-    const questions = [
-      {
-        id: 0,
-        q: "Vad skiljer vanliga lagar och grundlagar?",
-        keywords: [ "grundlag", "lag", "val", "ändra" ],
-        answered: false,
-        facit: "Grundlagar styr över alla vanliga lagar, inga vanliga lagar kan överskrida en grundlag. Grundlagar är mycket svårare att ändra, det krävs att riksdagen gör samma beslut två gånger <br> med ett val emellan. De kan också använda en folkröstning som rådgivning.",
-      },
-      {
-        id: 1,
-        q: "Vad beskrivs i Regeringsformen (RF)?",
-        keywords: [ "" ],
-        answered: false,
-        facit: "",
-      },
-      {
-        id: 2,
-        q: "Vad beskrivs i tryckfrihetsförordningen (TF)?",
-        keywords: [ "" ],
-        answered: false,
-        facit: "",
-      },
-      {
-        id: 3,
-        q: "Vad beskrivs i yttrandefrihetsförordningen (YFG)?",
-        keywords: [ "" ],
-        answered: false,
-        facit: "",
-      },
-      {
-        id: 4,
-        q: "Vad krävs för att ändra en grundlag?",
-        keywords: [ "" ],
-        answered: false,
-        facit: "",
-      },
-      {
-        id: 5,
-        q: "Vad innebär personval?",
-        keywords: [ "" ],
-        answered: false,
-        facit: "",
-      },
-      {
-        id: 6,
-        q: "Vilka krav måste du uppfylla för att få rösta i de olika valen i Sverige?",
-        keywords: [ "" ],
-        answered: false,
-        facit: "",
-      },
-      {
-        id: 7,
-        q: "Vilka konsekvenser kan det få i ett samhälle om det blir allt för stora skillnader i valdeltagande mellan kön, ålder och utbildning?",
-        keywords: [ "" ],
-        answered: false,
-        facit: "",
-      },
-      {
-        id: 8,
-        q: "Vad innebär det att Sverige är en parlamentarisk demokrati?",
-        keywords: [ "" ],
-        answered: false,
-        facit: "",
-      },
-      {
-        id: 9,
-        q: "Vad är skillnaden på en motion och en proposition?",
-        keywords: [ "" ],
-        answered: false,
-        facit: "",
-      },
-      {
-        id: 11,
-        q: "Förklara hur det går till när riksdagen fattar beslut",
-        keywords: [ "" ],
-        answered: false,
-        facit: "",
-      },
-      {
-        id: 12,
-        q: "Vad betyder över- och underskott för statens statsbudget?",
-        keywords: [ "" ],
-        answered: false,
-        facit: "",
-      },
-      {
-        id: 13,
-        q: "På vilka sätt kan riksdagen kontrollera regeringens arbete?",
-        keywords: [ "" ],
-        answered: false,
-        facit: "",
-      },
-      {
-        id: 14,
-        q: "Varför är det viktigt med öppenhet och insyn i en demokrati?",
-        keywords: [ "" ],
-        answered: false,
-        facit: "",
-      },
-      {
-        id: 15,
-        q: "Vilka olika typer av regeringar finns det?",
-        keywords: [ "" ],
-        answered: false,
-        facit: "",
-      },
-      {
-        id: 16,
-        q: "Vad är vågmästarrollen och vilka uppgifter har den?",
-        keywords: [ "" ],
-        answered: false,
-        facit: "",
-      },
-      {
-        id: 17,
-        q: "Vilka är regeringens viktigaste uppgifter?",
-        keywords: [ "" ],
-        answered: false,
-        facit: "",
-      },
-      {
-        id: 18,
-        q: "Två av regeringens uppdrag är att utreda och lämna förslag på nya lagar till riksdagen och genomföra riksdagens beslut. <br> Hur gör regeringen för att lösa de uppdragen?",
-        keywords: [ "" ],
-        answered: false,
-        facit: "",
-      },
-      {
-        id: 19,
-        q: "Vilka tre nivåer är stadsförvaltningen organiserad i?",
-        keywords: [ "" ],
-        answered: false,
-        facit: "",
-      },
-      {
-        id: 20,
-        q: "Vilka obligatoriska uppgifter har kommunen?",
-        keywords: [ "" ],
-        answered: false,
-        facit: "",
-      },
-      {
-        id: 21,
-        q: "Vilka obligatoriska uppgifter har regionerna?",
-        keywords: [ "" ],
-        answered: false,
-        facit: "",
-      },
-      {
-        id: 22,
-        q: "Hur går det till när kommunen fattar beslut?",
-        keywords: [ "" ],
-        answered: false,
-        facit: "",
-      },
-      {
-        id: 23,
-        q: "På vilka olika sätt kan du vara med och påverka det som händer i landet och runt omkring dig?",
-        keywords: [ "" ],
-        answered: false,
-        facit: "",
-      },
-      {
-        id: 24,
-        q: "Nämn tre orsaker till varför tilliten mellan folket och beslutsfattarna kan minska?",
-        keywords: [ "" ],
-        answered: false,
-        facit: "",
-      },
-    ];
-    questions.forEach((q, i) => {
-      const fraga = document.createElement("div")
-      fraga.id = `fraga-${q.id+1}`;
-      fraga.className = "fragaCard"
-      fraga.innerHTML = `<h2>${q.id + 1 + ". " + q.q}</h2><textarea id="textAnswer${q.id+1}" name="story" rows="5" cols="33"></textarea><button class="submit-btn" id="btn-${q.id+1}" style="display:block; padding:5px; margin:5px;" onclick="checkAnswer(${q.id})">Rätta svar</button><p id="${"facit-" + (q.id + 1)}"></p>`
-      document.getElementById("fragor").appendChild(fraga);
-    });
-    function checkAnswer(i){
-      let minus = 0;
-      document.getElementById("facit-" + (i + 1)).value
-      const submit = document.getElementById("btn-" + (i + 1))
-      questions[i].answered = true;
-      submit.disabled = true;
-      submit.style.cursor = "not-allowed";
-      questions[i].keywords.forEach((keyword, ix, arr) => {
-        let ifIncludes = document.getElementById("textAnswer" + (i + 1)).value.toLowerCase().includes(keyword);
-        if(!ifIncludes){
-          minus += 1;
-        }
-      });
-      console.log(1 -(minus/questions[i].keywords.length))
-      pts += 20 * (1 -(minus/questions[i].keywords.length))
-      if(pts > 0){
-        document.getElementById("facit-" + (i + 1)).innerHTML = "Rätt! + " + (20 * (1 -(minus/questions[i].keywords.length))) +  "/20 poäng! facit: " + questions[i].facit 
-      }else{
-        document.getElementById("facit-" + (i + 1)).innerHTML = "Inte riktigt rätt, 0 poäng, facit: " + questions[i].facit
-      }
-      document.getElementById("points").innerHTML = "Poäng: " + pts
     }
   </script>
 </body>
