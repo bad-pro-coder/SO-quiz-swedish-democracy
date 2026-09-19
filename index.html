@@ -48,6 +48,9 @@
       box-shadow: 0px 0px gray;
     }p{
       display:inline-block;
+    }#points{
+      position:sticky;
+      top:0;
     }
   </style>
 </head>
@@ -66,70 +69,161 @@
       },
       {
         id: 1,
-        q: "",
+        q: "Vad beskrivs i Regeringsformen (RF)?",
         keywords: [ "" ],
         answered: false,
         facit: "",
       },
       {
         id: 2,
-        q: "",
+        q: "Vad beskrivs i tryckfrihetsförordningen (TF)?",
         keywords: [ "" ],
         answered: false,
         facit: "",
       },
       {
         id: 3,
-        q: "",
+        q: "Vad beskrivs i yttrandefrihetsförordningen (YFG)?",
         keywords: [ "" ],
         answered: false,
         facit: "",
       },
       {
         id: 4,
-        q: "",
+        q: "Vad krävs för att ändra en grundlag?",
         keywords: [ "" ],
         answered: false,
         facit: "",
       },
       {
         id: 5,
-        q: "",
+        q: "Vad innebär personval?",
         keywords: [ "" ],
         answered: false,
         facit: "",
       },
       {
         id: 6,
-        q: "",
+        q: "Vilka krav måste du uppfylla för att få rösta i de olika valen i Sverige?",
         keywords: [ "" ],
         answered: false,
         facit: "",
       },
       {
         id: 7,
-        q: "",
+        q: "Vilka konsekvenser kan det få i ett samhälle om det blir allt för stora skillnader i valdeltagande mellan kön, ålder och utbildning?",
         keywords: [ "" ],
         answered: false,
         facit: "",
       },
       {
         id: 8,
-        q: "",
+        q: "Vad innebär det att Sverige är en parlamentarisk demokrati?",
         keywords: [ "" ],
         answered: false,
         facit: "",
       },
       {
         id: 9,
-        q: "",
+        q: "Vad är skillnaden på en motion och en proposition?",
         keywords: [ "" ],
         answered: false,
         facit: "",
       },
       {
-        id: 10,
-        q: "",
+        id: 11,
+        q: "Förklara hur det går till när riksdagen fattar beslut",
+        keywords: [ "" ],
+        answered: false,
+        facit: "",
+      },
+      {
+        id: 12,
+        q: "Vad betyder över- och underskott för statens statsbudget?",
+        keywords: [ "" ],
+        answered: false,
+        facit: "",
+      },
+      {
+        id: 13,
+        q: "På vilka sätt kan riksdagen kontrollera regeringens arbete?",
+        keywords: [ "" ],
+        answered: false,
+        facit: "",
+      },
+      {
+        id: 14,
+        q: "Varför är det viktigt med öppenhet och insyn i en demokrati?",
+        keywords: [ "" ],
+        answered: false,
+        facit: "",
+      },
+      {
+        id: 15,
+        q: "Vilka olika typer av regeringar finns det?",
+        keywords: [ "" ],
+        answered: false,
+        facit: "",
+      },
+      {
+        id: 16,
+        q: "Vad är vågmästarrollen och vilka uppgifter har den?",
+        keywords: [ "" ],
+        answered: false,
+        facit: "",
+      },
+      {
+        id: 17,
+        q: "Vilka är regeringens viktigaste uppgifter?",
+        keywords: [ "" ],
+        answered: false,
+        facit: "",
+      },
+      {
+        id: 18,
+        q: "Två av regeringens uppdrag är att utreda och lämna förslag på nya lagar till riksdagen och genomföra riksdagens beslut. <br> Hur gör regeringen för att lösa de uppdragen?",
+        keywords: [ "" ],
+        answered: false,
+        facit: "",
+      },
+      {
+        id: 19,
+        q: "Vilka tre nivåer är stadsförvaltningen organiserad i?",
+        keywords: [ "" ],
+        answered: false,
+        facit: "",
+      },
+      {
+        id: 20,
+        q: "Vilka obligatoriska uppgifter har kommunen?",
+        keywords: [ "" ],
+        answered: false,
+        facit: "",
+      },
+      {
+        id: 21,
+        q: "Vilka obligatoriska uppgifter har regionerna?",
+        keywords: [ "" ],
+        answered: false,
+        facit: "",
+      },
+      {
+        id: 22,
+        q: "Hur går det till när kommunen fattar beslut?",
+        keywords: [ "" ],
+        answered: false,
+        facit: "",
+      },
+      {
+        id: 23,
+        q: "På vilka olika sätt kan du vara med och påverka det som händer i landet och runt omkring dig?",
+        keywords: [ "" ],
+        answered: false,
+        facit: "",
+      },
+      {
+        id: 23,
+        q: "Nämn tre orsaker till varför tilliten mellan folket och beslutsfattarna kan minska?",
         keywords: [ "" ],
         answered: false,
         facit: "",
@@ -158,7 +252,7 @@
       console.log(1 -(minus/questions[i].keywords.length))
       pts += 20 * (1 -(minus/questions[i].keywords.length))
       if(pts > 0){
-        document.getElementById("facit-" + (i + 1)).innerHTML = "Rätt! + " + pts +  "/20 poäng! facit: " + questions[i].facit 
+        document.getElementById("facit-" + (i + 1)).innerHTML = "Rätt! + " + (20 * (1 -(minus/questions[i].keywords.length))) +  "/20 poäng! facit: " + questions[i].facit 
       }else{
         document.getElementById("facit-" + (i + 1)).innerHTML = "Inte riktigt rätt, 0 poäng, facit: " + questions[i].facit
       }
