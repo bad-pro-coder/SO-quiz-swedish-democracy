@@ -22,9 +22,11 @@
       width:fit-content;
       max-width:53vw;
       box-shadow: inset 0 1px 6px rgba(100,0,255,0.65);
+      display:inline-block;
+      margin-left:25vw;
+      margin-bottom:5vw;
     }#fragor{
-      display:flex;
-      justify-content: center;
+      ;
     }textarea{
       box-shadow: inset 0 3px 6px rgba(0,0,0,0.65);
       border:2px solid #000000;
@@ -62,28 +64,99 @@
         answered: false,
         facit: "Grundlagar styr över alla vanliga lagar, inga vanliga lagar kan överskrida en grundlag. Grundlagar är mycket svårare att ändra, det krävs att riksdagen gör samma beslut två gånger <br> med ett val emellan. De kan också använda en folkröstning som rådgivning.",
       },
+      {
+        id: 1,
+        q: "",
+        keywords: [ "" ],
+        answered: false,
+        facit: "",
+      },
+      {
+        id: 2,
+        q: "",
+        keywords: [ "" ],
+        answered: false,
+        facit: "",
+      },
+      {
+        id: 3,
+        q: "",
+        keywords: [ "" ],
+        answered: false,
+        facit: "",
+      },
+      {
+        id: 4,
+        q: "",
+        keywords: [ "" ],
+        answered: false,
+        facit: "",
+      },
+      {
+        id: 5,
+        q: "",
+        keywords: [ "" ],
+        answered: false,
+        facit: "",
+      },
+      {
+        id: 6,
+        q: "",
+        keywords: [ "" ],
+        answered: false,
+        facit: "",
+      },
+      {
+        id: 7,
+        q: "",
+        keywords: [ "" ],
+        answered: false,
+        facit: "",
+      },
+      {
+        id: 8,
+        q: "",
+        keywords: [ "" ],
+        answered: false,
+        facit: "",
+      },
+      {
+        id: 9,
+        q: "",
+        keywords: [ "" ],
+        answered: false,
+        facit: "",
+      },
+      {
+        id: 10,
+        q: "",
+        keywords: [ "" ],
+        answered: false,
+        facit: "",
+      },
     ];
     questions.forEach((q, i) => {
       const fraga = document.createElement("div")
       fraga.id = `fraga-${q.id+1}`;
       fraga.className = "fragaCard"
-      fraga.innerHTML = `<h2>${q.id + 1 + ". " + q.q}</h2><textarea id="textAnswer" name="story" rows="5" cols="33"></textarea><button class="submit-btn" id="btn-${q.id+1}" style="display:block; padding:5px; margin:5px;" onclick="checkAnswer(${q.id})">Rätta svar</button><p id="${"facit-" + (q.id + 1)}"></p>`
+      fraga.innerHTML = `<h2>${q.id + 1 + ". " + q.q}</h2><textarea id="textAnswer${q.id+1}" name="story" rows="5" cols="33"></textarea><button class="submit-btn" id="btn-${q.id+1}" style="display:block; padding:5px; margin:5px;" onclick="checkAnswer(${q.id})">Rätta svar</button><p id="${"facit-" + (q.id + 1)}"></p>`
       document.getElementById("fragor").appendChild(fraga);
     });
     function checkAnswer(i){
-      //var facit = document.getElementById("facit-" + (i + 1))
+      let minus = 0;
+      document.getElementById("facit-" + (i + 1)).value
       const submit = document.getElementById("btn-" + (i + 1))
       questions[i].answered = true;
       submit.disabled = true;
       submit.style.cursor = "not-allowed";
-      questions[i].keywords.forEach((keyword, ix, arr, i) => {
-        let ifIncludes = document.getElementById("textAnswer").value.toLowerCase().includes(keyword);
-        if(ifIncludes){
-          pts += 5;
+      questions[i].keywords.forEach((keyword, ix, arr) => {
+        let ifIncludes = document.getElementById("textAnswer" + (i + 1)).value.toLowerCase().includes(keyword);
+        if(!ifIncludes){
+          minus += 1;
         }
       });
-      console.log(pts)
-      console.log("facit-" + (i + 1))
+      console.log(1 -(minus/questions[i].keywords.length))
+      pts += 20 * (1 -(minus/questions[i].keywords.length))
       if(pts > 0){
         document.getElementById("facit-" + (i + 1)).innerHTML = "Rätt! + " + pts +  "/20 poäng! facit: " + questions[i].facit 
       }else{
