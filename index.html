@@ -52,6 +52,282 @@
     }#points{
       position:sticky;
       top:0;
+    }.facit{
+      font-family: "Josefin Sans", sans-serif;
+      font-optical-sizing: auto;
+      font-style: normal;
+    }#points{
+      font-family: "Josefin Sans", sans-serif;
+      font-optical-sizing: auto;
+      font-style: normal;
+    }
+  </style>
+</head>
+<body>
+  <h1>Plugga inför SO-provet</h1><p id="points">Poäng: 0</p>
+  <div id="fragor"></div>
+  <script>
+    pts = 0;
+    const questions = [
+      {
+        id: 0,
+        q: "Vad skiljer vanliga lagar och grundlagar?",
+        keywords: [ "grundlag", "lag", "ändra", "riksdag"],
+        answered: false,
+        facit: "Grundlagar styr över alla vanliga lagar, inga vanliga lagar kan överskrida en grundlag. Grundlagar är mycket svårare att ändra, det krävs att riksdagen gör samma beslut två gånger med ett val emellan. De kan också använda en folkröstning som rådgivning.",
+      },
+      {
+        id: 1,
+        q: "Vad beskrivs i Regeringsformen (RF)?",
+        keywords: [ "sverige", "styr", "demokrati", "rätt" ],
+        answered: false,
+        facit: "Det är den viktigaste grundlagen och finns för att bestämma hur Sverige styrs. Till exempel måste det vara ett riksval vart fjärde år som folket bestämmer - representativ demokrati. Det står även vilka fri- och rättigheter vi som bor i Sverige har, till exempel, mötes-, demonstrations- och religionsfrihet.",
+      },
+      {
+        id: 2,
+        q: "Vad beskrivs i tryckfrihetsförordningen (TF)?",
+        keywords: [ "rätt", "tankar", "åsikter", "censur", "medier", "förtal", "offentlighet" ],
+        answered: false,
+        facit: "Lagen säger att alla personer ska ha rätt att uttrycka sina tankar, åsikter och känslor i skrift. Den hindrar staten från att censurera eller ändra tidningar, böcker, hemsidor eller sociala medier, de får inte avgöra vad du får skriva. Det finns två undantag till lagen, ingen får skicka nedsättande om någon person eller grupp (förtal), och hemligheter om Sveriges säkerhet ska vara hemliga. Offentlighetsprincipen innebär att alla handlingar, brev, e-post, bilder och protokoll som utfärdas av eller skickats till riksdagen, regering, kommuner och myndigheter är offentliga",
+      },
+      {
+        id: 3,
+        q: "Vad beskrivs i yttrandefrihetsförordningen (YFG)?",
+        keywords: [ "rätt", "uttryck", "radio", "tv", "film" ],
+        answered: false,
+        facit: "Lagen säger att alla personer ska ha rätt att uttrycka sig som de vill i radio, tv och film, förutom undantagen som i tryckfrihetsförordningen. ",
+      },
+      {
+        id: 4,
+        q: "Vad krävs för att ändra en grundlag?",
+        keywords: [ "riksdagen", "val", "folk" ],
+        answered: false,
+        facit: "Det krävs antingen - ett beslut av riksdagen, valet, och sedan samma beslut med ett val mellan. Eller - ett beslut av riksdagen, folkomröstning och sedan samma beslut av nästa riksdag så länge folket inte röstade nej, eftersom då kan inte ändringen utföras.",
+      },
+      {
+        id: 5,
+        q: "Vad innebär personval?",
+        keywords: [ "röst", "politiker", "beslut" ],
+        answered: false,
+        facit: "En röstare kan kryssa för en politiker på valsedelns lista för att den ska kunna komma in i den beslutande församlingen även om den inte skulle från början.",
+      },
+      {
+        id: 6,
+        q: "Vilka krav måste du uppfylla för att få rösta i de olika valen i Sverige?",
+        keywords: [ "medborgare", "18", "folkbok", "3" , "år" ],
+        answered: false,
+        facit: "Riksdagsvalet: För att vara röstberättigad måste du vara en svensk medborgare och minst 18 år gammal. <br><br> Kommun och regionvalen: Samma krav men även de som är folkbokförda till Sverige kan rösta så länge de är från ett annat EU-land, Island eller Norge. Även personer som inte kommer därifrån fast har bott i Sverige i minst 3 år (folkbokförda).",
+      },
+      {
+        id: 7,
+        q: "Vilka konsekvenser kan det få i ett samhälle om det blir allt för stora skillnader i valdeltagande mellan kön, ålder och utbildning?",
+        keywords: [ "grupp", "makt", "demokrati", "röst" ],
+        answered: false,
+        facit: "Gruppen som röstar mest får makten, vilket gör att vissa gruppers behov blir ignorerade och de slutar rösta eftersom ingen lyssnar på de ändå. Demokratin blir svagare eftersom det är mindre öppenhet och bara en grupp i samhället som kontrollerar sig själva.",
+      },
+      {
+        id: 8,
+        q: "Vad innebär det att Sverige är en parlamentarisk demokrati?",
+        keywords: [ "regering", "riksdagen", "stöd" ],
+        answered: false,
+        facit: "Regeringen styr landet fast behöver också lyssna på riksdagen (Sveriges parlament). Regering måste alltså ha stöd och få förslag av riksdagen, annars faller de.",
+      },
+      {
+        id: 9,
+        q: "Vad är skillnaden på en motion och en proposition?",
+        keywords: [ "förslag", "regering", "ledamöt", "motion", "proposition" ],
+        answered: false,
+        facit: "Propositioner är förslag som kommer från regeringen medan motioner är förslag som kommer från enskilda riksdagsledamöter (mandaternas ledare).",
+      },
+      {
+        id: 10,
+        q: "Förklara hur det går till när riksdagen fattar beslut",
+        keywords: [ "motion", "proposition", "riksdagen", "regeringen", "talman", "utskott", "röst", "verkställer" ],
+        answered: false,
+        facit: "En motion eller proposition kommer till riksdagen, talmannen tar emot förslaget, utskottet diskuterar förslaget och skickar ibland ut det på remiss, (till någon expert om det området), utskottet har diskuterat färdigt och skickar ett betänkande (ett exempel på det första förslaget), riksdagen debatterar och röstar fram ett beslut, regeringen får reda på riksdagens beslut, regeringen verkställer beslutet.",
+      },
+      {
+        id: 11,
+        q: "Vad betyder över- och underskott för statens statsbudget?",
+        keywords: [ "överskott", "underskott" , "utgifter", "inkomster" ],
+        answered: false,
+        facit: "Underskott är när staten betalar mer utgifter än inkomster. Överskott är när staten får mer inkomster än utgifter.",
+      },
+      {
+        id: 12,
+        q: "På vilka sätt kan riksdagen kontrollera regeringens arbete?",
+        keywords: [ "riksdag", "frågor", "regering", "granska" ],
+        answered: false,
+        facit: "Riksdagen kan granska och kontrollera regeringens arbete genom att fråga frågor under en frågestund vilket är öppet för alla. Riksdagen kan skicka interpellationer till regeringen, frågor som regeringen måste svara på inom 2 veckor. Konstitutionsutskottet, KU, är ett utskott i riksdagen som granskar att regeringens beslut stämmer med lagar och regler som gäller för regeringens arbete.",
+      },
+      {
+        id: 13,
+        q: "Varför är det viktigt med öppenhet och insyn i en demokrati?",
+        keywords: [ "missbruk", "makt"],
+        answered: false,
+        facit: "Det gör att alla kan granska vad makten bestämmer och därför kan de protestera och tvinga makten att backa. Makten ska vara begränsad och inte bli missbrukad.",
+      },
+      {
+        id: 14,
+        q: "Vilka olika typer av regeringar finns det?",
+        keywords: [ "minoritetsregering", "majoritetsregering",  "enpartiregering", "koalitionsregering", "samlingsregering"],
+        answered: false,
+        facit: "Majoritetsregering, minoritetsregering, enpartiregering (ett parti bildar regering), koalitionsregering (flera partier bildar regering), samlingsregering (då de flesta partierna samarbetar, ofta i kris som ett krig).",
+      },
+      {
+        id: 15,
+        q: "Vad är vågmästarrollen och vilka uppgifter har den?",
+        keywords: [ "höger", "vänster", "vågmästar", "regering", "förslag" ],
+        answered: false,
+        facit: "Den mellan höger- och vänsterskalan, Centern. Vågmästarrollen kan avgöra om regeringen får igenom sina förslag eller inte om det är en minoritetsregering.",
+      },
+      {
+        id: 16,
+        q: "Vilka är regeringens viktigaste uppgifter?",
+        keywords: [ "förslag", "budget", "mili", "utrike", "samarbet" ],
+        answered: false,
+        facit: "Utreda och lämna förslag till riksdagen om nya lagar, presentera en statsbudget, företräda Sverige i EU-samarbetet, verkställa riksdagens beslut med hjälp av myndigheter och förvaltningar , ansvara för Sveriges militära försvar och utrikespolitik, det vill säga hur Sverige förhåller sig till och samarbetar med andra länder.",
+      },
+      {
+        id: 17,
+        q: "Två av regeringens uppdrag är att utreda och lämna förslag på nya lagar till riksdagen och genomföra riksdagens beslut. <br> Hur gör regeringen för att lösa de uppdragen?",
+        keywords: [ "regering", "kansliet", "myndighet", "förvaltning" ],
+        answered: false,
+        facit: "De tar hjälp av Regeringskansliet, de som hjälper kommuner och regioner, myndigheter och förvaltningar, till exempel statsverket. Statsministern är chef i Regeringskansliet. När de lämnar förslag gör de en utredning för att ta reda på problem och lösningar till de problemen och på så sätt kommer på förslagen.",
+      },
+      {
+        id: 18,
+        q: "Vilka tre nivåer är stadsförvaltningen organiserad i?",
+        keywords: [ "central", "regional", "lokal" ],
+        answered: false,
+        facit: "Alla statliga myndigheter och förvaltningar - är organiserade i central (staten), regional och lokal statsförvaltning.",
+      },
+      {
+        id: 19,
+        q: "Vilka obligatoriska uppgifter har kommunen?",
+        keywords: [ "skola", "äldreomsorg", "socialtjänst", "bibliotek", "räddningstjänst", "bostäder"],
+        answered: false,
+        facit: "Skola, äldreomsorg, socialtjänst, bibliotek, räddningstjänst och bostäder.",
+      },
+      {
+        id: 20,
+        q: "Vilka obligatoriska uppgifter har regionerna?",
+        keywords: [ "häls", "sjukvård", "tandvård", "kollektiv" ],
+        answered: false,
+        facit: "Obligatoriska är hälso- och sjukvård, tandvård för barn och unga, ibland även kollektivtrafik.",
+      },
+      {
+        id: 21,
+        q: "Hur går det till när kommunen fattar beslut?",
+        keywords: [ "ledamöt", "invånar", "kommun", "kommunstyrelsen", "fullmäktige", "nämnden", "verkställ", "förslag" ],
+        answered: false,
+        facit: "Det kommer förslag från ledamöter, invånare eller kommunstyrelsen. Kommunfullmäktige diskuterar förslagen med hjälp av nämnden och förvaltningen. Ett förslag tar sig till kommunfullmäktige där det fattas ett beslut. Beslutet verkställs av kommunstyrelsen och nämnden. Det genomförs av förvaltningen och kommunen som styrs av kommunstyrelsen.",
+      },
+      {
+        id: 22,
+        q: "På vilka olika sätt kan du vara med och påverka det som händer i landet och runt omkring dig?",
+        keywords: [ "medborgardialog", "medborgarförslag", "bilda", "opinion", "förening", "organisation", "överklaga", "demonst", "civil olydnad"],
+        answered: false,
+        facit: "Enligt medborgardialogen ska du som invånare få vara med och påverka de beslut som fullmäktige ska fatta, till exempel hur en park ska utformas. Enligt medborgarförslaget ska det vara lätt för dig som invånare att påverka på kommunal nivå än riksnivå. Du ska kunna lämna förslag till kommunen. Du kan skapa till exempel insändare och debattartiklar på sociala medier men du kan även till exempel lämna brev till folk för att bilda andras opinioner så som du tycker. Du kan gå med i föreningar och organisationer eftersom politiker ofta lyssnar på dem. Du har rätten att överklaga politiska beslut som påverkar mig negativt. Du kan demonstrera tillsammans med andra för att visa att frågan är viktig. Du kan även utföra civil olydnad då man bryter mot lagen för att visa att du verkligen brinner starkt för den här frågan. Till exempel limma fast sig på vägen.",
+      },
+      {
+        id: 23,
+        q: "Nämn tre orsaker till varför tilliten mellan folket och beslutsfattarna kan minska?",
+        keywords: [ "uttnyttj", "trygg", "myndighet", "ekonomisk", "skillnad" ],
+        answered: false,
+        facit: "När enskilda politiker utnyttjar sin position för egen vinning. Då människor inte känner sig trygga i samhället och litar inte längre på att myndigheterna kan skydda dem från faror. Ökande ekonomiska skillnader, men även skillnader mellan jobb, sjuka och låg- och högutbildade.",
+      },
+    ];
+    questions.forEach((q, i) => {
+      const fraga = document.createElement("div")
+      fraga.id = `fraga-${q.id+1}`;
+      fraga.className = "fragaCard"
+      fraga.innerHTML = `<h2>${q.id + 1 + ". " + q.q}</h2><textarea id="textAnswer${q.id+1}" name="story" rows="5" cols="33"></textarea><button class="submit-btn" id="btn-${q.id+1}" style="display:block; padding:5px; margin:5px;" onclick="checkAnswer(${q.id})">Rätta svar</button><button class="submit-btn" id="facitBtn-${q.id+1}" style="display:block; padding:5px; margin:5px;" onclick="visaFacit(${i})">Visa facit</button><p id="${"facit-" + (q.id + 1)}" class="facit"></p>`
+      document.getElementById("fragor").appendChild(fraga);
+    });
+    function checkAnswer(i){
+      let minus = 0;
+      document.getElementById("facit-" + (i + 1)).value
+      const submit = document.getElementById("btn-" + (i + 1))
+      questions[i].answered = true;
+      submit.disabled = true;
+      submit.style.cursor = "not-allowed";
+      questions[i].keywords.forEach((keyword, ix, arr) => {
+        let ifIncludes = document.getElementById("textAnswer" + (i + 1)).value.toLowerCase().includes(keyword);
+        if(!ifIncludes){
+          minus += 1;
+        }
+      });
+      console.log(1 -(minus/questions[i].keywords.length))
+      let x = 20 * (1 -(minus/questions[i].keywords.length))
+      x = x/5
+      x = Math.round(x)
+      pts += x*5
+      if(pts > 0){
+        document.getElementById("facit-" + (i + 1)).innerHTML = "Rätt! + " + x*5 +  "/20 poäng! facit: <br><br>" + questions[i].facit 
+      }else{
+        document.getElementById("facit-" + (i + 1)).innerHTML = "Inte riktigt rätt, 0 poäng, facit: <br><br>" + questions[i].facit
+      }
+      document.getElementById("points").innerHTML = "Poäng: " + pts
+    }function visaFacit(i){
+      document.getElementById("facit-" + (i + 1)).innerHTML =       "Facit: " + questions[i].facit
+    }
+  </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <title>Plugga inför SO-provet</title>
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+    h1, h2{
+      font-family: "Josefin Sans", sans-serif;
+      font-optical-sizing: auto;
+      font-style: normal;
+      margin:1vw;
+    }body{ 
+        background-color:black;
+        color:white;
+        
+    }.fragaCard{
+      background-color:#05072e;
+      background-image: 
+            radial-gradient(at 100% 0%, hsla(300,209%,30%,0.3) 0, transparent 50%);
+      border-radius:1vh;
+      width:fit-content;
+      max-width:53vw;
+      box-shadow: inset 0 1px 6px rgba(100,0,255,0.65);
+      display:inline-block;
+      margin-left:25vw;
+      margin-bottom:5vw;
+    }#fragor{
+      ;
+    }textarea{
+      box-shadow: inset 0 3px 6px rgba(0,0,0,0.65);
+      border:2px solid #000000;
+      font-family: "Josefin Sans", sans-serif;
+      font-size:12px;
+      font-optical-sizing: auto;
+      font-style: normal;
+      max-width:50vw;
+      min-width:50vw;
+      margin-left:1vw;
+      margin-right:1vw;
+      margin-bottom:1vw;
+      width:50vw;
+      border-radius:3px;
+    }.submit-btn{
+      box-shadow: 0px 5px gray;
+      transition: transform 0.1s ease-in-out;
+    }.submit-btn:active{
+      transform: translateY(5px);
+      box-shadow: 0px 0px gray;
+    }p{
+      display:inline-block;
+    }#points{
+      position:sticky;
+      top:0;
     }
   </style>
 </head>
