@@ -268,7 +268,7 @@
       x = x/5
       x = Math.round(x)
       pts += x*5
-      if(pts > 0){
+      if(x > 0){
         document.getElementById("facit-" + (i + 1)).innerHTML = "Rätt! + " + x*5 +  "/20 poäng! facit: <br><br>" + questions[i].facit 
       }else{
         document.getElementById("facit-" + (i + 1)).innerHTML = "Inte riktigt rätt, 0 poäng, facit: <br><br>" + questions[i].facit
